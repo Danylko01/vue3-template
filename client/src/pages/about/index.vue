@@ -8,4 +8,8 @@ defineOptions({
   <div class="content">about</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.content{
+
+}
+</style>
