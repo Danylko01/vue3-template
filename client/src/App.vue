@@ -2,29 +2,29 @@
  * @Description: 
  * @Author: Danylko
  * @Date: 2024-05-31 06:38:11
- * @LastEditTime: 2024-06-09 12:09:56
+ * @LastEditTime: 2024-07-08 07:23:51
 -->
 <!-- src/components/AppComposition.vue -->
 
 <template>
-  <div :class="theme">
-    <button @click="toggleTheme">Toggle Theme</button>
+  <div class="app">
+    <!-- <button @click="toggleTheme">Toggle Theme</button>
     <RouterLink class="nav-link" to="/">首页</RouterLink>
-    <RouterLink class="nav-link" to="/about">关于</RouterLink>
+    <RouterLink class="nav-link" to="/about">关于</RouterLink> -->
     <router-view />
+    <DockerBar :items="items" class="docker-bar" />
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import DockerBar from '@/layouts/docker.vue'
 import { useThemeStore } from '@/stores/theme'
-
 const themeStore = useThemeStore()
-
-const toggleTheme = () => {
-  const newTheme = themeStore.theme === 'light' ? 'dark' : 'light'
-  themeStore.setTheme(newTheme)
-}
-
+const items = ref([
+  { key: '首页', value: '/' },
+  { key: '关于', value: '/about' }
+])
 const theme = themeStore.theme
 themeStore.setTheme(theme)
 console.log('thenme', theme)
@@ -32,4 +32,15 @@ console.log('thenme', theme)
 
 <style lang="less">
 @import '@/assets/styles/themes.less';
+// body {
+//   margin: 0;
+//   overflow: hidden; /* 禁止页面滚动 */
+// }
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 160px;
+  grid-template-columns: 100%;
+  color: var(--text-primary);
+}
 </style>
