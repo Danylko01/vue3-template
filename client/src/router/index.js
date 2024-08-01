@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Danylko
  * @Date: 2024-06-29 12:28:39
- * @LastEditTime: 2024-07-06 13:41:48
+ * @LastEditTime: 2024-07-31 06:49:45
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/home/index.vue'
@@ -20,6 +20,11 @@ const routes = [
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../pages/about/index.vue')
+  },
+  {
+    path: '/cropper',
+    name: 'cropper',
+    component: () => import('../pages/cropper/index.vue')
   }
 ]
 

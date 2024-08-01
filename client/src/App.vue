@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Danylko
  * @Date: 2024-05-31 06:38:11
- * @LastEditTime: 2024-07-08 07:23:51
+ * @LastEditTime: 2024-07-18 20:47:56
 -->
 <!-- src/components/AppComposition.vue -->
 
@@ -13,17 +13,20 @@
     <RouterLink class="nav-link" to="/about">关于</RouterLink> -->
     <router-view />
     <DockerBar :items="items" class="docker-bar" />
+    <SettingBar />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import DockerBar from '@/layouts/docker.vue'
+import SettingBar from '@/layouts/setting.vue'
 import { useThemeStore } from '@/stores/theme'
 const themeStore = useThemeStore()
 const items = ref([
   { key: '首页', value: '/' },
-  { key: '关于', value: '/about' }
+  { key: '关于', value: '/about' },
+  { key: '裁剪', value: '/cropper' }
 ])
 const theme = themeStore.theme
 themeStore.setTheme(theme)
