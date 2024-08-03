@@ -24,6 +24,7 @@ const handleTest = async () => {
   console.log('res', res)
 }
 handleTest()
+handleTest()
 const config = inject('variable')
 console.log('config', config)
 </script>

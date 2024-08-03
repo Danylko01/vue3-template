@@ -48,6 +48,7 @@ export const getData = async (username) => {
 }
 
 export const getTest = async () => {
+	console.log("event test")
   try {
     const response = await request.get('/test', {
       headers: {

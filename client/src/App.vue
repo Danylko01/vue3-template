@@ -34,7 +34,7 @@ console.log('thenme', theme)
 </script>
 
 <style lang="less">
-@import '@/assets/styles/themes.less';
+/* @import '@/assets/styles/themes.less'; */
 // body {
 //   margin: 0;
 //   overflow: hidden; /* 禁止页面滚动 */

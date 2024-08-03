@@ -57,9 +57,12 @@ const ev = new EventEmitter()
 // 添加请求拦截器
 request.interceptors.request.use(
   async (config) => {
+		console.log("config", config)
     let api = location.pathname
+		console.log("location", location)
     // 生成请求Key
     let reqKey = generateReqKey(config, api)
+		console.log("reqKey", reqKey)
     if (!isFileUploadApi(config) && pendingRequest.has(reqKey)) {
       // 如果是相同请求,在这里将请求挂起，通过发布订阅来为该请求返回结果
       // 这里需注意，拿到结果后，无论成功与否，都需要return Promise.reject()来中断这次请求，否则请求会正常发送至服务器
