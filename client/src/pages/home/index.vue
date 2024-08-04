@@ -22,9 +22,8 @@ const toggleTheme = () => {
 const handleTest = async () => {
 	try {
 		const res = await getTest()
-		console.log('res', res)
 	} catch(error) {
-		console.log("test errot", error)
+		console.log("/test接口请求出错：", error.message)
 	}
 }
 handleTest()

@@ -23,7 +23,6 @@ const generateRequsetKey = (config) => {
 // 添加请求到队列中
 const addRequestToQueue = (config) => {
 	const requestKey = generateRequsetKey(config)
-	console.log("requestKey", requestKey)
 	if (requestQueue.has(requestKey)) {
 		return null
 	}
@@ -38,25 +37,18 @@ const removeRequestFromQueue = (config) => {
 	requestQueue.delete(requestKey)
 }
 // 请求拦截器
-console.log(1)
 request.interceptors.request.use((config) => {
-	console.log(2)
 	return addRequestToQueue(config) || Promise.reject(new axios.Cancel('Request Duplicate'))
 }, (error) => {
-	console.log(3)
 	return Promise.reject(error)
 })
 // 响应拦截器
-console.log("7")
 request.interceptors.response.use((response) => {
-	console.log("response", response)
-	console.log(4)
 	removeRequestFromQueue(response.config)
 	return response 
 }, (error) => {
-	console.log(5)
 	if (axios.isCancel(error)) {
-		console.log('request canceled', error.message)
+		// console.log('request canceled', error.message)
 	} else {
 		removeRequestFromQueue(error.config)
 	}

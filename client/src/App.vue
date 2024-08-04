@@ -30,7 +30,6 @@ const items = ref([
 ])
 const theme = themeStore.theme
 themeStore.setTheme(theme)
-console.log('thenme', theme)
 </script>
 
 <style lang="less">

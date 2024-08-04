@@ -48,7 +48,6 @@ export const getData = async (username) => {
 }
 
 export const getTest = async () => {
-	console.log("event test")
   try {
     const response = await request.get('/test', {
       headers: {
@@ -57,7 +56,7 @@ export const getTest = async () => {
     })
     return response
   } catch (error) {
-    console.error('GET 请求出错', error)
+    // console.error('GET 请求出错', error.message)
     throw error
   }
 }
