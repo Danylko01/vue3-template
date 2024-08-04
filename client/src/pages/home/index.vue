@@ -20,9 +20,14 @@ const toggleTheme = () => {
 
 
 const handleTest = async () => {
-  const res = await getTest()
-  console.log('res', res)
+	try {
+		const res = await getTest()
+		console.log('res', res)
+	} catch(error) {
+		console.log("test errot", error)
+	}
 }
+handleTest()
 handleTest()
 handleTest()
 const config = inject('variable')
