@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Danylko
  * @Date: 2024-05-31 07:31:32
- * @LastEditTime: 2024-07-18 18:30:37
+ * @LastEditTime: 2024-08-13 08:14:37
 -->
 <script setup>
 import { inject } from 'vue'
@@ -18,13 +18,13 @@ const toggleTheme = () => {
   themeStore.setTheme(newTheme)
 }
 
-
 const handleTest = async () => {
-	try {
-		const res = await getTest()
-	} catch(error) {
-		console.log("/test接口请求出错：", error.message)
-	}
+  try {
+    const res = await getTest()
+    console.log('rrrres', res)
+  } catch (error) {
+    console.log('/test接口请求出错：', error.message)
+  }
 }
 handleTest()
 handleTest()
